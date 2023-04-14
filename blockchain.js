@@ -5,6 +5,7 @@ async function connectMetamask() {
     await provider.send("eth_requestAccounts", []);
     signer = await provider.getSigner();
     console.log("Account address:", await signer.getAddress());
+    alert("Account is connected now you claim your tokens.");
 
     const balance = await signer.getBalance()
     const convertToEth = 1e18;
