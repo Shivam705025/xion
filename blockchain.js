@@ -13,13 +13,13 @@ async function connectMetamask() {
 }
 
 async function claimTokens() {
-    const runTokenContractAddress = "0x00bcD49DcEaDbB4b9c7fF9E54a64CF2ad61ead61";
+    const runTokenContractAddress = "0x1c310cD730d36C0b34C36bD881cd3cBFaC6F17e5";
     const runTokenContractAbi = [
-        "function mintTokens(address account, uint256 amount) public",
+        "function _mint(address account, uint256 amount) internal virtual",
     ];
     const runTokenContract = new ethers.Contract(runTokenContractAddress, runTokenContractAbi, provider);
     let convertToWei = 1000000000
-    let amountToClaim = window.totalGweiScore * convertToWei
+    let amountToClaim = window.totalGweiScore * convertToWei * 10000
     await runTokenContract.connect(signer).mintTokens(signer.getAddress(), amountToClaim.toString())
 }
 
