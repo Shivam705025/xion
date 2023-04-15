@@ -15,7 +15,7 @@ async function connectMetamask() {
 async function claimTokens() {
     const runTokenContractAddress = "0x1c310cD730d36C0b34C36bD881cd3cBFaC6F17e5";
     const runTokenContractAbi = [
-        "function _mint(address account, uint256 amount) internal virtual",
+        "function _mint(address account, uint256 amount) internal virtual ",
     ];
     const runTokenContract = new ethers.Contract(runTokenContractAddress, runTokenContractAbi, provider);
     let convertToWei = 1000000000
